@@ -11,11 +11,14 @@ if(element !== undefined && element !== undefined){
     const title = window.location.pathname;
     const attribute = JSON.parse(element.getAttribute('data-item')).sources[0].src
 
-    console.log(title)
-    console.log(attribute)
+    if(attribute !== undefined)
+    {
+        console.log(title)
+        console.log(attribute)
 
-    chrome.runtime.sendMessage({
-        title: title,
-        src: attribute
-    })
+        chrome.runtime.sendMessage({
+            title: title,
+            src: attribute
+        })
+    }
 }
