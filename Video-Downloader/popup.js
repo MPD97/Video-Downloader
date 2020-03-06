@@ -1,25 +1,25 @@
 document.addEventListener('DOMContentLoaded', function(){
 
     const bg = chrome.extension.getBackgroundPage()
+    
+    const h1 = document.createElement('h1')
+    h1.textContent = 'Json saved. Now use second part of utility'
+    document.body.appendChild(h1);
 
-    Object.keys(bg.elements).forEach(function(title){
-        const div = document.createElement('div')
-        div.textContent = `${title}: ${bg.elements[title]}`
-        document.body.appendChild(div);
-   })
+    const link = document.createElement('a')
+    link.textContent = 'Download utility from github'
+    link.href = 'https://github.com/MPD97/Video-Downloader-Part-Two'
+    document.body.appendChild(link);
 
-   const json = JSON.stringify(bg.elements)
-   console.log(json)
+    function download(content, fileName, contentType) {
+        var a = document.createElement("a")
+        var file = new Blob([content], {type: contentType})
+        a.href = URL.createObjectURL(file)
+        a.download = fileName
+        a.click()
+    }
 
-
-function download(content, fileName, contentType) {
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
-}
-download(json, 'json.txt', 'text/plain');
-
+    const json = JSON.stringify(bg.elements)
+    download(json, 'json.txt', 'text/plain')
 
 }, false);
