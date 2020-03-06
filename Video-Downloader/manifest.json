@@ -1,0 +1,18 @@
+{
+    "name": "video-downloader",
+    "version": "1.0",
+    "manifest_version": 2,
+    "content_scripts":[
+        {
+            "matches": ["https://edu.devstyle.pl/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "browser_action" : {
+        "default_title": "video-downloader"
+    },
+    "background":{
+        "scripts": ["background.js"]
+    },
+    "permissions":["tabs"]
+}
