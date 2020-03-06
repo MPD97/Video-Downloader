@@ -6,7 +6,6 @@
 // })
 
 const element = document.querySelector('#content > div.contenter.content_lekcji > div')
-
 if(element !== undefined && element !== undefined){
     
     const title = window.location.pathname;

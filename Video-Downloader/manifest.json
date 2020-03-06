@@ -4,12 +4,13 @@
     "manifest_version": 2,
     "content_scripts":[
         {
-            "matches": ["https://edu.devstyle.pl/*"],
+            "matches": ["https://edu.devstyle.pl/bazy-danych/*"],
             "js": ["content.js"]
         }
     ],
     "browser_action" : {
-        "default_title": "video-downloader"
+        "default_title": "If you visited all sites, click to generate json file",
+        "default_popup": "hover.html"
     },
     "background":{
         "scripts": ["background.js"]
